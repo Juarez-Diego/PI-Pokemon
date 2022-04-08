@@ -9,7 +9,6 @@ const router = Router()
 
 /////////////////////////////////////////// GET POKEMON FROM API USING NEXT /////////////////////////////////////////////////
 const fetchAllPages = async function(url = "https://pokeapi.co/api/v2/pokemon") {
-
     
     const data = [];
 
