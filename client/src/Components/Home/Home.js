@@ -7,8 +7,13 @@ import Filters from "../Filters/Filters";
 import SearchBar from "../SearchBar/SearchBar";
 import Card from "../Card/Card"
 import Loading from "../Loading/Loading";
+import Paginado from "../Paginado/Paginado";
 
 import { getPokemon, getTypes } from "../../Actions";
+import pages from "../Paginado/Paginado"
+import pokemonPerPage from "../Paginado/Paginado"
+
+
 
 
 function Home(){
@@ -30,6 +35,8 @@ useEffect(() => {                 // Intenta mover esto a App.js para que deje d
             <Filters />
             <SearchBar />
 
+            <Paginado />
+{/* 
             {allPokemon?.map(e => {
             return (
             <div>
@@ -47,7 +54,7 @@ useEffect(() => {                 // Intenta mover esto a App.js para que deje d
             
             </div>
             )}
-        )}
+        )} */}
         </div>
     )
 };
