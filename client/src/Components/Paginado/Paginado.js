@@ -42,7 +42,7 @@ const pageNumber = [];
                 )})}
             </ul>
             </nav>
-            {console.log(pageNumber)}
+            
 
             {currentPokemon?.map(e => {
             return (

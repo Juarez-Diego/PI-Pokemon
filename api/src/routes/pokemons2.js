@@ -33,6 +33,7 @@ const fetchAllPages = async function(url = "https://pokeapi.co/api/v2/pokemon") 
             id: e.id,
             name: e.name,
             types: e.types?.map(e => e.type.name),
+            attack: e.stats[1].base_stat,
             image: e.sprites.other.dream_world.front_default
         }
     })
@@ -57,7 +58,9 @@ const getDbInfo = async function(){
             id: e.id,
             name: e.name,
             types: e.Types?.map(v => v.name),
-            image: e.image
+            image: e.image,
+            attack: e.attack,
+            createdInDb: e.createdInDb
         }
     })
 

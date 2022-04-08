@@ -45,3 +45,31 @@ export function createPokemon(payload){
         const create = await axios.post("http://localhost:3001/pokemons/", payload)
     }
 }
+
+export function sortAlphabetically(payload){
+    return {
+        type: "SORT_ALPHABETICALLY",
+        payload
+    }
+}
+
+export function sortByAttack(payload){
+    return {
+        type: "SORT_BY_ATTACK",
+        payload
+    }
+}
+
+export function filterBySource(payload){
+    return {
+        type: "FILTER_BY_SOURCE",
+        payload
+    }
+}
+
+export function filterByType(payload){
+    return{
+        type: "FILTER_BY_TYPE",
+        payload
+    }
+}
