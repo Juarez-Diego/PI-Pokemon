@@ -19,7 +19,9 @@ const getApi = async function(id){
         speed: apiData.data.stats[5].base_stat,
         height: apiData.data.height,
         wieght: apiData.data.weight,
-        image: apiData.data.sprites.other.dream_world.front_default
+        image: apiData.data.sprites.other.dream_world.front_default,
+        types: apiData.data.types.map(e => e.type.name)
+
     }]
 
     return results
@@ -27,8 +29,8 @@ const getApi = async function(id){
 
 const getDb = async function(id){
 
-    const results = []
-    const temp = await Pokemon.findOne({
+  
+    const getfromDb = await Pokemon.findOne({
         where: {
             id
         },
@@ -41,9 +43,25 @@ const getDb = async function(id){
         }
     })
 
-    results.push(temp)
+    let temp = [];
+    temp.push(getfromDb)
 
-    return results
+    const result =  temp?.map(e => {
+        return {
+            id: e.id,
+            name: e.name,
+            hp: e.hp,
+            attack: e.attack,
+            defense: e.defense,
+            speed: e.speed,
+            height: e.height,
+            weight: e.weight,
+            image: e.image,
+            types: e.types?.map(v => v.name),
+        }
+    })
+
+    return result;
 }
 
 router.get("/:id", async(req, res) => {
